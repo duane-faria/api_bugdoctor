@@ -9,13 +9,18 @@ class BugController implements Controller {
   }
 
   async store (req, res) {
-    // console.log(global.models.Bug);
     return res.json({
       data: await bugRepository.insert(req.body)
     })
   }
 
-  async delete () {}
+  async delete (req, res) {
+    await bugRepository.delete(req.params.id)
+
+    return res.json({
+      data: { success: true }
+    })
+  }
 
   async update () {}
 }
