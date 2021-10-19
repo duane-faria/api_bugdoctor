@@ -7,7 +7,9 @@ export default (sequelize: any, DataTypes: any) => {
     description!: string
     responsible!: string
     reporter!: string
-
+    enviroment!: string
+    priority!: string
+    status!: string
     // static associate (models: any) {
     //   User.belongsToMany(models.Project, {
     //     through: 'ProjectAssignments'
@@ -32,6 +34,18 @@ export default (sequelize: any, DataTypes: any) => {
         allowNull: false
       },
       reporter: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      enviroment: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      priority: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      status: {
         type: DataTypes.STRING,
         allowNull: false
       }

@@ -54,7 +54,7 @@ class Database {
     db.Sequelize = Sequelize
 
     db.sequelize
-      .sync({ alter: true })
+      .sync({ alter: true, force: false })
       .then(() => console.log('all models have been created'))
   }
 }
