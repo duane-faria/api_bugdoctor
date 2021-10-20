@@ -1,4 +1,6 @@
 import { Model, UUIDV4 } from 'sequelize'
+import bcrypt from 'bcryptjs'
+
 import IUser from '../protocol/user'
 
 export default (sequelize: any, DataTypes: any) => {
@@ -33,6 +35,15 @@ export default (sequelize: any, DataTypes: any) => {
     {
       sequelize,
       modelName: 'User'
+    }
+  )
+
+  User.addHook(
+    'beforeSave',
+    async (user: any): Promise<any> => {
+      if (user.password) {
+        user.password = await bcrypt.hash(user.password, 8)
+      }
     }
   )
 

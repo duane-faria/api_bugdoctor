@@ -1,6 +1,10 @@
 import IUser from '../protocol/user'
 
-class BugRepository {
+class UserRepository {
+  findOne (conditions?: any): Promise<IUser> {
+    return global.models.User.findOne(conditions)
+  }
+
   getAll (): Promise<Array<IUser>> {
     return global.models.User.findAll()
   }
@@ -17,4 +21,5 @@ class BugRepository {
     return global.models.User.destroy({ where: { id } })
   }
 }
-export default new BugRepository()
+
+export default new UserRepository()

@@ -2,6 +2,7 @@ import { Router } from 'express'
 
 import BugController from './app/controller/bug'
 import UserController from './app/controller/user'
+import SessionControler from './app/controller/session'
 
 const routes = Router()
 
@@ -15,4 +16,5 @@ routes.post('/user', UserController.store)
 routes.put('/user', UserController.update)
 routes.delete('/user/:id', UserController.delete)
 
+routes.post('/session', SessionControler.store)
 export default routes
